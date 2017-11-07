@@ -93,17 +93,15 @@
 
 /* 
 
-var donations = $.ajax({
-   type: "GET",
-   url: "https://api.justgiving.com/7e017f27/v1/fundraising/pages/jenny-houghton1/donations",
-   dataType: "xml"
+var donations = {};
+
+$.ajax({
+    type: "GET",
+    url: "https://api.justgiving.com/7e017f27/v1/fundraising/pages/jenny-houghton1/donations",
+    dataType : 'json'
+}).done(function (obj) {
+  donations = obj;
+  console.log(donations.donations["0"].amount);
 });
-
-var xmlDoc = $.parseXML(donations);
-
-$xml = $(xmlDoc),
-$message = $xml.find("message");
-
-alert($message.val());
 
 */

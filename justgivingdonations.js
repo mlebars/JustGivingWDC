@@ -60,12 +60,13 @@
 	};
 
 	myConnector.getData = function(table, doneCallback) {
-
+	    var fundraiser = $("input").val();
+	    var url = "https://api.justgiving.com/7e017f27/v1/fundraising/pages/" + fundraiser + "/donations"
 	    var donations = {};
 	    var tableData = [];
 	    $.ajax({
     		type: "GET",
-   		url: "https://api.justgiving.com/7e017f27/v1/fundraising/pages/jenny-houghton1/donations",
+   		url: url,
     		dataType : 'json'
 	    }).done(function (obj) {
   		donations = obj;
@@ -88,7 +89,7 @@
 		}
 	table.appendRows(tableData);
 	doneCallback();
-	console.log(tableData);
+	/*console.log(tableData);*/
 	});
     };
 

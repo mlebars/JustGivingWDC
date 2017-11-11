@@ -60,7 +60,7 @@
 	};
 
 	myConnector.getData = function(table, doneCallback) {
-	    var fundraiser = $("input").val();
+	    var fundraiser = $("#fundraiser").val();
 	    var url = "https://api.justgiving.com/7e017f27/v1/fundraising/pages/" + fundraiser + "/donations"
 	    var donations = {};
 	    var tableData = [];

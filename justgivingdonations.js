@@ -81,7 +81,7 @@
 	table.appendRows(tableData);
 	doneCallback();
 	};
-    };
+    }
 
     tableau.registerConnector(myConnector);
 

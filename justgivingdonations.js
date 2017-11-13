@@ -61,9 +61,11 @@
 
 	myConnector.getData = function(table, doneCallback) {
 	    
-	    /*console.log(url);*/
+	    var formData = JSON.parse(tableau.connectionData);
+	    var url = "https://api.justgiving.com/7e017f27/v1/fundraising/pages/" + formData["fundraiser"] + "/donations";
 	    var donations = {};
 	    var tableData = [];
+
 	    $.ajax({
     		type: "GET",
    		url: url,
@@ -89,7 +91,6 @@
 		}
 	table.appendRows(tableData);
 	doneCallback();
-	/*console.log(tableData);*/
 	});
     };
 
@@ -97,10 +98,10 @@
 
 	$(document).ready(function () {
     	$("#submitButton").click(function () {
-		var fundraiser = $("#fundraiser").val();
-	    	var url = "https://api.justgiving.com/7e017f27/v1/fundraising/pages/" + fundraiser + "/donations";
+			var formData = {'fundraiser':$("#fundraiser").val();}
         	tableau.connectionName = "Just Giving - Fundraiser Donations";
+        	tableau.connectionData = JSON.stringify(formData);
         	tableau.submit();
     	});
-});
+	});
 })();

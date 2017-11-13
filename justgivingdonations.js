@@ -98,7 +98,6 @@
 
 	$(document).ready(function () {
     	$("#submitButton").click(function () {
-		tableau.log($("#fundraiser").val());
 		var formData = {'fundraiser':$("#fundraiser").val();}
         	tableau.connectionName = "Just Giving - Fundraiser Donations";
         	tableau.connectionData = JSON.stringify(formData);

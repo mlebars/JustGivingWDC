@@ -90,7 +90,7 @@
         	tableau.connectionName = "Just Giving - Fundraiser Donations";
         	$.ajax({
 	    		type: "GET",
-	   			url: "https://api.justgiving.com/7e017f27/v1/fundraising/pages/" + $("#fundraiser").val(); + "/donations";,
+	   			url: "https://api.justgiving.com/7e017f27/v1/fundraising/pages/" + $("#fundraiser").val(); + "/donations",
 	    		dataType : 'json'
 	    	}).done(function (obj) {
 	    		myJSON = obj;
